@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ผลกระทบของน้ำสกปรก: วิกฤตที่มองไม่เห็น | คู่มือความรู้ฉบับสมบูรณ์</title>
+<meta name="description" content="น้ำสกปรกไม่ใช่เพียงปัญหาสิ่งแวดล้อม แต่เป็นวิกฤตที่คร่าชีวิตกว่า 1.4 ล้านคนต่อปี ลด GDP ได้ถึงหนึ่งในสาม เรียนรู้ผลกระทบรอบด้านพร้อมแหล่งอ้างอิงที่น่าเชื่อถือ">
+<style>
+  :root{
+    --primary:#0b6e99;
+    --primary-dark:#085578;
+    --primary-light:#e6f4fa;
+    --accent:#00a3b5;
+    --text:#1f2937;
+    --muted:#4b5563;
+    --bg:#f8fafc;
+    --card:#ffffff;
+    --border:#e5e7eb;
+    --warning:#b45309;
+    --warning-bg:#fef3c7;
+    --danger:#b91c1c;
+    --success:#047857;
+    --shadow:0 1px 3px rgba(0,0,0,.08), 0 4px 16px rgba(0,0,0,.04);
+    --radius:12px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    font-family:"Sarabun","Noto Sans Thai","Segoe UI",system-ui,-apple-system,sans-serif;
+    line-height:1.75;
+    color:var(--text);
+    background:var(--bg);
+    font-size:17px;
+  }
+
+  /* ===== HEADER / NAV ===== */
+  header.site-header{
+    background:linear-gradient(135deg,var(--primary-dark),var(--primary),var(--accent));
+    color:#fff;
+    padding:64px 24px 72px;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  header.site-header::after{
+    content:"";
+    position:absolute;bottom:-1px;left:0;right:0;height:60px;
+    background:var(--bg);
+    clip-path:polygon(0 100%, 100% 100%, 100% 0, 0 100%);
+  }
+  header.site-header h1{
+    font-size:clamp(1.6rem,4vw,2.5rem);
+    max-width:900px;
+    margin:0 auto 16px;
+    line-height:1.35;
+    position:relative;z-index:2;
+  }
+  header.site-header p.lead{
+    max-width:760px;
+    margin:0 auto;
+    font-size:1.05rem;
+    opacity:.95;
+    position:relative;z-index:2;
+  }
+
+  nav.topnav{
+    position:sticky;top:0;z-index:100;
+    background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--border);
+    box-shadow:0 2px 8px rgba(0,0,0,.04);
+  }
+  nav.topnav ul{
+    list-style:none;display:flex;overflow-x:auto;
+    max-width:1200px;margin:0 auto;padding:0 16px;
+    -webkit-overflow-scrolling:touch;
+  }
+  nav.topnav li a{
+    display:block;padding:16px 14px;
+    text-decoration:none;color:var(--muted);
+    font-size:.92rem;font-weight:600;
+    white-space:nowrap;border-bottom:3px solid transparent;
+    transition:all .2s;
+  }
+  nav.topnav li a:hover{color:var(--primary);border-bottom-color:var(--accent)}
+
+  /* ===== LAYOUT ===== */
+  .container{max-width:1100px;margin:0 auto;padding:0 24px}
+  main{padding:48px 0}
+
+  /* ===== TOC ===== */
+  .toc{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:28px 32px;
+    box-shadow:var(--shadow);
+    margin-bottom:48px;
+    border-left:5px solid var(--accent);
+  }
+  .toc h2{
+    font-size:1.25rem;margin-bottom:16px;color:var(--primary-dark);
+    border:none;padding:0;
+  }
+  .toc ol{padding-left:22px}
+  .toc ol li{margin:8px 0}
+  .toc ol li a{color:var(--primary);text-decoration:none;font-weight:500}
+  .toc ol li a:hover{text-decoration:underline}
+
+  /* ===== SECTIONS ===== */
+  section.content{
+    background:var(--card);
+    border-radius:var(--radius);
+    padding:36px 40px;
+    margin-bottom:32px;
+    box-shadow:var(--shadow);
+    scroll-margin-top:80px;
+  }
+  section.content h2{
+    font-size:clamp(1.35rem,2.5vw,1.75rem);
+    color:var(--primary-dark);
+    margin-bottom:20px;
+    padding-bottom:12px;
+    border-bottom:2px solid var(--primary-light);
+    line-height:1.4;
+  }
+  section.content h3{
+    font-size:1.15rem;
+    color:var(--primary);
+    margin:28px 0 12px;
+    line-height:1.5;
+  }
+  section.content h3:first-of-type{margin-top:20px}
+  section.content p{margin-bottom:14px;color:var(--text)}
+  section.content ul, section.content ol{
+    margin:12px 0 16px 22px;
+  }
+  section.content li{margin-bottom:8px}
+  section.content strong{color:var(--primary-dark)}
+
+  /* ===== FEATURED SNIPPET ===== */
+  .snippet{
+    background:var(--primary-light);
+    border-left:5px solid var(--primary);
+    padding:18px 22px;
+    border-radius:8px;
+    margin-bottom:22px;
+    font-size:1rem;
+  }
+  .snippet::before{
+    content:"คำตอบสั้น";
+    display:block;
+    font-size:.78rem;
+    font-weight:700;
+    text-transform:uppercase;
+    letter-spacing:.5px;
+    color:var(--primary);
+    margin-bottom:6px;
+  }
+
+  /* ===== TABLES ===== */
+  .table-wrap{overflow-x:auto;margin:20px 0}
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:.95rem;
+    background:#fff;
+    border-radius:8px;
+    overflow:hidden;
+    box-shadow:0 1px 3px rgba(0,0,0,.06);
+  }
+  thead{background:var(--primary)}
+  thead th{
+    color:#fff;padding:14px 16px;text-align:left;
+    font-weight:600;font-size:.92rem;
+  }
+  tbody td{
+    padding:12px 16px;
+    border-bottom:1px solid var(--border);
+    vertical-align:top;
+  }
+  tbody tr:last-child td{border-bottom:none}
+  tbody tr:nth-child(even){background:#f9fafb}
+  tbody tr:hover{background:var(--primary-light)}
+
+  /* ===== STATS CARDS ===== */
+  .stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:16px;
+    margin:24px 0;
+  }
+  .stat-card{
+    background:linear-gradient(135deg,#ffffff,var(--primary-light));
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:20px;
+    text-align:center;
+  }
+  .stat-card .num{
+    font-size:1.8rem;font-weight:800;color:var(--primary-dark);
+    display:block;line-height:1.2;
+  }
+  .stat-card .label{
+    font-size:.88rem;color:var(--muted);margin-top:6px;
+  }
+
+  /* ===== CALLOUTS ===== */
+  .callout{
+    border-radius:8px;padding:16px 20px;margin:20px 0;
+    font-size:.95rem;
+  }
+  .callout.warning{background:var(--warning-bg);border-left:5px solid var(--warning);color:#78350f}
+  .callout.warning strong{color:var(--warning)}
+  .callout.danger{background:#fee2e2;border-left:5px solid var(--danger);color:#7f1d1d}
+  .callout.danger strong{color:var(--danger)}
+  .callout.info{background:var(--primary-light);border-left:5px solid var(--primary);color:var(--primary-dark)}
+  .callout.info strong{color:var(--primary-dark)}
+
+  /* ===== REFERENCES ===== */
+  .refs{list-style:none;padding:0;margin:20px 0;counter-reset:ref}
+  .refs li{
+    padding:14px 16px 14px 54px;
+    background:#f9fafb;
+    border-radius:8px;
+    margin-bottom:10px;
+    position:relative;
+    font-size:.94rem;
+    border-left:3px solid var(--accent);
+  }
+  .refs li::before{
+    counter-increment:ref;
+    content:counter(ref);
+    position:absolute;left:14px;top:14px;
+    width:28px;height:28px;
+    background:var(--primary);
+    color:#fff;
+    border-radius:50%;
+    display:flex;align-items:center;justify-content:center;
+    font-size:.8rem;font-weight:700;
+  }
+  .refs li a{color:var(--primary);text-decoration:none;word-break:break-word}
+  .refs li a:hover{text-decoration:underline}
+
+  /* ===== BACK TO TOP ===== */
+  .back-to-top{
+    position:fixed;bottom:24px;right:24px;
+    width:48px;height:48px;
+    background:var(--primary);
+    color:#fff;border:none;border-radius:50%;
+    font-size:1.3rem;cursor:pointer;
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+    display:flex;align-items:center;justify-content:center;
+    text-decoration:none;
+    transition:background .2s,transform .2s;
+    z-index:90;
+  }
+  .back-to-top:hover{background:var(--primary-dark);transform:translateY(-3px)}
+
+  /* ===== FOOTER ===== */
+  footer.site-footer{
+    background:#111827;
+    color:#d1d5db;
+    padding:40px 24px 32px;
+    text-align:center;
+    font-size:.9rem;
+    margin-top:48px;
+  }
+  footer.site-footer p{margin-bottom:8px}
+  footer.site-footer a{color:var(--accent);text-decoration:none}
+  footer.site-footer a:hover{text-decoration:underline}
+
+  /* ===== RESPONSIVE ===== */
+  @media(max-width:640px){
+    body{font-size:16px}
+    section.content{padding:24px 20px}
+    .toc{padding:20px}
+    header.site-header{padding:48px 20px 60px}
+    .refs li{padding-left:48px}
+  }
+
+  /* ===== PRINT ===== */
+  @media print{
+    nav.topnav,.back-to-top,footer.site-footer{display:none}
+    section.content{box-shadow:none;padding:20px 0;page-break-inside:avoid}
+    header.site-header{background:#fff;color:#000;padding:20px 0}
+    header.site-header::after{display:none}
+  }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="site-header">
+  <h1>ผลกระทบของน้ำสกปรก: วิกฤตที่มองไม่เห็นซึ่งกระทบทุกมิติของชีวิต</h1>
+  <p class="lead">
+    น้ำสกปรกไม่ใช่เพียงปัญหาสิ่งแวดล้อม แต่เป็นวิกฤตที่คร่าชีวิตกว่า 1.4 ล้านคนต่อปี
+    ลด GDP ได้ถึงหนึ่งในสาม และตอกย้ำความเหลื่อมล้ำทางสังคม
+  </p>
+</header>
+
+<!-- ================= NAV ================= -->
+<nav class="topnav" aria-label="เมนูหลัก">
+  <ul>
+    <li><a href="#overview">ภาพรวม</a></li>
+    <li><a href="#health">สุขภาพ</a></li>
+    <li><a href="#economy">เศรษฐกิจ</a></li>
+    <li><a href="#ecosystem">ระบบนิเวศ</a></li>
+    <li><a href="#social">สังคม</a></li>
+    <li><a href="#thailand">ประเทศไทย</a></li>
+    <li><a href="#solutions">แนวทางแก้ไข</a></li>
+    <li><a href="#references">แหล่งอ้างอิง</a></li>
+  </ul>
+</nav>
+
+<main class="container">
+
+  <!-- ================= TOC ================= -->
+  <aside class="toc" aria-label="สารบัญ">
+    <h2>📋 สารบัญ</h2>
+    <ol>
+      <li><a href="#overview">ภาพรวม: ทำไมน้ำสกปรกจึงเป็น "วิกฤตที่มองไม่เห็น"</a></li>
+      <li><a href="#health">ผลกระทบด้านสุขภาพ: โรคภัยที่มาพร้อมน้ำที่ปนเปื้อน</a></li>
+      <li><a href="#economy">ผลกระทบด้านเศรษฐกิจ: ต้นทุนที่ซ่อนอยู่ในน้ำเสีย</a></li>
+      <li><a href="#ecosystem">ผลกระทบต่อระบบนิเวศ: เมื่อแหล่งน้ำ "ตาย" ทางชีวภาพ</a></li>
+      <li><a href="#social">ผลกระทบด้านสังคม: น้ำสกปรกตอกย้ำความเหลื่อมล้ำ</a></li>
+      <li><a href="#thailand">สถานการณ์ในประเทศไทย</a></li>
+      <li><a href="#solutions">สรุปและแนวทางลดผลกระทบ</a></li>
+      <li><a href="#references">แหล่งอ้างอิง</a></li>
+    </ol>
+  </aside>
+
+  <!-- ================= 1. OVERVIEW ================= -->
+  <section class="content" id="overview">
+    <h2>1. ภาพรวม: ทำไมน้ำสกปรกจึงเป็น "วิกฤตที่มองไม่เห็น"</h2>
+
+    <div class="snippet">
+      น้ำสกปรกหรือน้ำเสียที่ปนเปื้อนสร้างความเสียหายต่อสุขภาพ เศรษฐกิจ ระบบนิเวศ
+      และสังคมพร้อมกัน โดยธนาคารโลกเรียกสถานการณ์นี้ว่า "วิกฤตคุณภาพน้ำที่มองไม่เห็น"
+      (Invisible Water Crisis) เพราะผลกระทบส่วนใหญ่เกิดขึ้นอย่างช้า ๆ
+      แต่สร้างความเสียหายในวงกว้างต่อเนื่อง
+    </div>
+
+    <div class="stats">
+      <div class="stat-card"><span class="num">44%</span><span class="label">น้ำเสียครัวเรือนทั่วโลกถูกปล่อยโดยไม่ผ่านการบำบัดอย่างปลอดภัย (ปี 2020)</span></div>
+      <div class="stat-card"><span class="num">~50%</span><span class="label">ของน้ำเสียทั่วโลกไหลลงสู่สิ่งแวดล้อมโดยไม่ผ่านการบำบัดเลย</span></div>
+      <div class="stat-card"><span class="num">1.4 ล้านคน</span><span class="label">เสียชีวิตต่อปีจากน้ำดื่ม/สุขอนามัยที่ไม่ปลอดภัย</span></div>
+    </div>
+
+    <p>
+      ธนาคารโลกเตือนว่าโดยไม่มีการดำเนินการเร่งด่วน คุณภาพน้ำจะเสื่อมโทรมลงต่อไป
+      ส่งผลกระทบต่อสุขภาพของมนุษย์ ลดการผลิตอาหารอย่างมหาศาล
+      และทำให้ความก้าวหน้าทางเศรษฐกิจหยุดชะงัก
+    </p>
+  </section>
+
+  <!-- ================= 2. HEALTH ================= -->
+  <section class="content" id="health">
+    <h2>2. ผลกระทบด้านสุขภาพ: โรคภัยที่มาพร้อมน้ำที่ปนเปื้อน</h2>
+
+    <div class="snippet">
+      น้ำสกปรกเป็นพาหะของโรคติดเชื้อหลายชนิด โดยเฉพาะโรคอุจจาระร่วง
+      ซึ่งเป็นสาเหตุการเสียชีวิตของเด็กอายุต่ำกว่า 5 ปีถึงประมาณ
+      <strong>395,000 คนต่อปี</strong> ที่สามารถป้องกันได้ด้วยการปรับปรุงคุณภาพน้ำและสุขอนามัย
+    </div>
+
+    <h3>2.1 โรคติดเชื้อที่สำคัญ</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>กลุ่มโรค</th>
+            <th>ตัวอย่างโรค</th>
+            <th>ข้อมูลสำคัญ</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>โรคอุจจาระร่วง</strong></td>
+            <td>อหิวาตกโรค บิด ไทฟอยด์</td>
+            <td>คร่าชีวิตเด็กอายุต่ำกว่า 5 ปีประมาณ 395,000 คนในปี 2019</td>
+          </tr>
+          <tr>
+            <td><strong>โรคปรสิต</strong></td>
+            <td>พยาธิใบไม้ พยาธิปากขอ โรคเท้าช้าง</td>
+            <td>เกี่ยวข้องกับสุขอนามัยที่ไม่ดี โดยเฉพาะในเขตร้อน</td>
+          </tr>
+          <tr>
+            <td><strong>โรคติดเชื้ออื่น ๆ</strong></td>
+            <td>โปลิโอ ไวรัสตับอักเสบเอ</td>
+            <td>เกิดจากการบริโภคน้ำหรืออาหารที่ปนเปื้อนเชื้อจากอุจจาระ</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>2.2 ภาระโรคโดยรวม</h3>
+    <ul>
+      <li><strong>1.4 ล้านคน</strong> เสียชีวิตทุกปีจากน้ำดื่ม สุขอนามัย และการสุขาภิบาลที่ไม่ปลอดภัย ส่วนใหญ่อยู่ในประเทศรายได้ต่ำและปานกลาง</li>
+      <li><strong>829,000 คน</strong> เสียชีวิตจากโรคอุจจาระร่วงที่เกิดจาก WASH ที่ไม่ปลอดภัยในปี 2016</li>
+      <li><strong>485,000 คน</strong> เสียชีวิตจากโรคอุจจาระร่วงที่เกิดจากน้ำดื่มที่ปนเปื้อน</li>
+      <li><strong>432,000 คน</strong> เสียชีวิตจากโรคอุจจาระร่วงที่เกิดจากการขาดสุขอนามัยที่ปลอดภัย</li>
+    </ul>
+
+    <h3>2.3 สารปนเปื้อนที่ส่งผลต่อสุขภาพระยะยาว</h3>
+    <ul>
+      <li><strong>ไนเตรตจากปุ๋ยไนโตรเจน:</strong> ส่งผลต่อการเจริญเติบโตและพัฒนาการทางสมองของเด็ก ทุก ๆ ไนโตรเจน 1 กิโลกรัมต่อเฮกตาร์ที่เข้าสู่แหล่งน้ำ ระดับภาวะแคระแกร็นในเด็กอาจเพิ่มขึ้นถึง <strong>19%</strong></li>
+      <li><strong>PFAS และไมโครพลาสติก:</strong> สารปนเปื้อนอุบัติใหม่ที่ตกค้างยาวนาน สะสมในสิ่งมีชีวิต และเป็นอันตรายต่อระบบนิเวศและสุขภาพมนุษย์</li>
+      <li><strong>การดื้อยาต้านจุลชีพ (AMR):</strong> น้ำเสียเป็นแหล่งรวมของเชื้อดื้อยา ยีนดื้อยา และสารตกค้างที่ไหลเวียนสู่แหล่งน้ำ เกษตรกรรม และห่วงโซ่อาหาร AMR มีส่วนทำให้เกิดการเสียชีวิตเกือบ <strong>5 ล้านคนทั่วโลกต่อปี</strong> และอาจเพิ่มเป็น <strong>8.22 ล้านคนต่อปีภายในปี 2050</strong></li>
+    </ul>
+
+    <div class="callout danger">
+      <strong>⚠️ ข้อควรระวัง:</strong> การปนเปื้อนของน้ำไม่ได้จำกัดอยู่แค่ในประเทศกำลังพัฒนา
+      สาร PFAS และไมโครพลาสติกถูกตรวจพบในแหล่งน้ำดื่มของประเทศพัฒนาแล้วหลายแห่ง
+      และยังไม่มีเทคโนโลยีบำบัดที่สมบูรณ์แบบในเชิงพาณิชย์
+    </div>
+  </section>
+
+  <!-- ================= 3. ECONOMY ================= -->
+  <section class="content" id="economy">
+    <h2>3. ผลกระทบด้านเศรษฐกิจ: ต้นทุนที่ซ่อนอยู่ในน้ำเสีย</h2>
+
+    <div class="snippet">
+      น้ำสกปรกกัดกร่อนศักยภาพทางเศรษฐกิจอย่างมีนัยสำคัญ โดยธนาคารโลกพบว่า
+      พื้นที่ที่อยู่ใต้แหล่งน้ำที่มีมลพิษรุนแรงอาจสูญเสียการเติบโตทางเศรษฐกิจได้ถึง
+      <strong>หนึ่งในสาม</strong> ของศักยภาพ และ GDP อาจลดลงได้ถึง
+      <strong>0.8–2.0%</strong> ในภูมิภาคที่ได้รับผลกระทบ
+    </div>
+
+    <h3>3.1 ผลกระทบต่อ GDP และผลิตภาพแรงงาน</h3>
+    <ul>
+      <li><strong>GDP ลดลงได้ถึงหนึ่งในสาม:</strong> ในบางพื้นที่ ผลกระทบทางเศรษฐกิจของน้ำที่ปนเปื้อนสามารถลด GDP ได้มากถึงหนึ่งในสาม</li>
+      <li><strong>การเติบโตทางเศรษฐกิจลดลง 0.8–2.0%:</strong> เมื่อแม่น้ำมีมลพิษหนัก ภูมิภาคที่อยู่ใต้แหล่งน้ำจะสูญเสียการเติบโตทางเศรษฐกิจระหว่าง 0.8 ถึง 2.0 เปอร์เซ็นต์</li>
+      <li><strong>ผลิตภาพแรงงาน:</strong> WHO ประมาณการว่าภูมิภาคเอเชียตะวันออกเฉียงใต้สูญเสียวันทำงานที่มีประสิทธิผล <strong>5,400 ล้านวันต่อปี</strong> (ประมาณ 3.5 วันต่อคนทำงานต่อปีในเวียดนาม) เนื่องจากโรคอุจจาระร่วงที่เกิดจากน้ำเสียที่ไม่ผ่านการบำบัด</li>
+      <li><strong>การลงมือทำ vs. การเพิกเฉย:</strong> การลงทุนบำบัดน้ำเสียสามารถเพิ่ม GDP ได้ <strong>2.3%</strong> แต่การเพิกเฉยอาจลด GDP ลง <strong>3.5%</strong> ภายในปี 2035 หรือคิดเป็นส่วนต่างถึง <strong>5.8% ของ GDP</strong></li>
+    </ul>
+
+    <h3>3.2 ผลกระทบต่อภาคเกษตรและอาหาร</h3>
+    <ul>
+      <li><strong>ผลผลิตทางการเกษตรลดลง:</strong> ต้นทุนของการเพิกเฉยรวมถึงความสูญเสียในผลิตภาพทางการเกษตรหลายแสนล้านดอลลาร์สหรัฐฯ ประมงที่เสื่อมโทรม และภาระค่ารักษาพยาบาลที่เพิ่มขึ้น</li>
+      <li><strong>การสูญเสียอาหาร:</strong> โลกสูญเสียอาหารเพียงพอที่จะเลี้ยงคนได้ <strong>170 ล้านคนต่อปี</strong> (เทียบเท่าประชากรบังกลาเทศ) เนื่องจากความเค็มของน้ำที่เพิ่มขึ้น</li>
+      <li><strong>ตัวอย่างรูปธรรม:</strong> บราซิลสูญเสียรายได้จากผลผลิตพืชประมาณ <strong>16 พันล้านดอลลาร์สหรัฐฯ ต่อปี</strong> เนื่องจากความเค็มของดินที่เกิดจากน้ำเสีย</li>
+    </ul>
+
+    <h3>3.3 ต้นทุนค่าบำบัดและค่ารักษาพยาบาล</h3>
+    <ul>
+      <li><strong>ภาระค่ารักษาพยาบาลระดับ trillion ดอลลาร์:</strong> WHO ประมาณการว่ามีผู้เสียชีวิตกว่า 1 ล้านคนจากการปนเปื้อนเชื้อจากอุจจาระในปี 2019 และ 74 ล้าน DALYs ซึ่งคิดเป็นความสูญเสียประมาณ <strong>5.074 ล้านล้านดอลลาร์สหรัฐฯ</strong> จากการประมาณการแบบอนุรักษ์นิยม</li>
+    </ul>
+
+    <div class="stats">
+      <div class="stat-card"><span class="num">1 ใน 3</span><span class="label">ของศักยภาพ GDP ที่สูญเสียในพื้นที่น้ำมีมลพิษรุนแรง</span></div>
+      <div class="stat-card"><span class="num">5,400 ล้าน</span><span class="label">วันทำงานที่มีประสิทธิผลสูญเสียต่อปีในเอเชียตะวันออกเฉียงใต้</span></div>
+      <div class="stat-card"><span class="num">170 ล้านคน</span><span class="label">จำนวนประชากรที่อาหารเพียงพอจะเลี้ยงได้ถูกสูญเสียต่อปี</span></div>
+    </div>
+  </section>
+
+  <!-- ================= 4. ECOSYSTEM ================= -->
+  <section class="content" id="ecosystem">
+    <h2>4. ผลกระทบต่อระบบนิเวศ: เมื่อแหล่งน้ำ "ตาย" ทางชีวภาพ</h2>
+
+    <div class="snippet">
+      น้ำเสียที่ปนเปื้อนสารอาหารและสารพิษทำให้เกิด
+      <strong>ยูโทรฟิเคชัน (Eutrophication)</strong>
+      ซึ่งนำไปสู่การขาดออกซิเจนในน้ำ การตายของปลา
+      และการสูญเสียความหลากหลายทางชีวภาพในระบบนิเวศทางน้ำอย่างรุนแรง
+    </div>
+
+    <h3>4.1 ยูโทรฟิเคชันและภาวะขาดออกซิเจน</h3>
+    <ul>
+      <li><strong>กลไก:</strong> ไนโตรเจนและฟอสฟอรัสในน้ำเสียเป็นสาเหตุหลักของยูโทรฟิเคชัน ทำให้สาหร่ายเจริญเติบโตอย่างรวดเร็ว เมื่อสาหร่ายตายและเน่าเปื่อย จะใช้ออกซิเจนในน้ำจนหมด ส่งผลให้ปลาและสิ่งมีชีวิตในน้ำขาดออกซิเจนและตายเป็นจำนวนมาก</li>
+      <li><strong>ผลลัพธ์:</strong> ระบบนิเวศน้ำจืดหลายแห่งทั่วโลกตกเป็นเหยื่อของยูโทรฟิเคชันจากน้ำเสียที่ไม่ผ่านการบำบัด ทำให้สถานะทางโภชนาการของแหล่งน้ำเปลี่ยนแปลงไปอย่างถาวร</li>
+    </ul>
+
+    <h3>4.2 การสูญเสียความหลากหลายทางชีวภาพ</h3>
+    <ul>
+      <li><strong>การเปลี่ยนแปลงทางสรีรวิทยาและพฤติกรรม:</strong> มีการบันทึกการสูญเสียความหลากหลายทางชีวภาพ การเปลี่ยนแปลงทางสรีรวิทยาและพฤติกรรมของสิ่งมีชีวิต ตลอดจนการตายของปลาในระบบนิเวศทางน้ำจากน้ำเสีย</li>
+      <li><strong>แม้แต่โรงบำบัดน้ำเสียก็ยังเป็นภัย:</strong> การศึกษาพบว่าการระบายน้ำทิ้งจากโรงบำบัดน้ำเสีย (WWTP) ยังคงเป็นตัวกระตุ้นความเครียดในวงกว้าง และอาจขัดขวางการฟื้นตัวทางนิเวศของแม่น้ำที่ได้รับการฟื้นฟูแล้ว เนื่องจากระดับความเป็นพิษที่ยังหลงเหลืออยู่</li>
+    </ul>
+
+    <div class="callout info">
+      <strong>💡 ข้อสังเกต:</strong> การบำบัดน้ำเสียแบบดั้งเดิม (Conventional Treatment)
+      มักกำจัดสารอาหารหลักได้ แต่ไม่สามารถกำจัดสารปนเปื้อนอุบัติใหม่
+      เช่น ยาปฏิชีวนะ ฮอร์โมน หรือไมโครพลาสติก ได้อย่างสมบูรณ์
+      จึงจำเป็นต้องมีระบบบำบัดขั้นสูงเพิ่มเติม
+    </div>
+  </section>
+
+  <!-- ================= 5. SOCIAL ================= -->
+  <section class="content" id="social">
+    <h2>5. ผลกระทบด้านสังคม: น้ำสกปรกตอกย้ำความเหลื่อมล้ำ</h2>
+
+    <div class="snippet">
+      น้ำสกปรกไม่ได้ส่งผลกระทบต่อทุกคนอย่างเท่าเทียม กลุ่มเปราะบาง
+      โดยเฉพาะ <strong>ผู้หญิง เด็ก และชุมชนแออัด</strong>
+      แบกรับภาระจากน้ำเสียมากกว่ากลุ่มอื่นอย่างมีนัยสำคัญ
+      เนื่องจากข้อจำกัดทางเศรษฐกิจ สังคม และบทบาททางเพศ
+    </div>
+
+    <h3>5.1 มิติทางเพศ (Gender Dimension)</h3>
+    <ul>
+      <li><strong>ผู้หญิงและเด็กหญิงได้รับผลกระทบไม่สมสัดส่วน:</strong> เนื่องจากบทบาทในการจัดการน้ำในครัวเรือนและการดูแลผู้อื่น ผู้หญิงจึงมีความเสี่ยงต่อสุขภาพจากน้ำที่ปนเปื้อนสูงกว่า และต้องใช้เวลาในการจัดหาน้ำสะอาดมากขึ้น</li>
+      <li><strong>การจัดการน้ำเสียที่คำนึงถึงเพศสภาพ:</strong> สามารถลดภาระการดูแลและปรับปรุงสุขภาพมารดาและทารกได้</li>
+      <li><strong>หนึ่งในสามของประเทศในซีกโลกใต้:</strong> ติดอยู่ในกับดักสามชั้นของ <em>คุณภาพน้ำต่ำ ความยากจนสูง และความไม่เท่าเทียมทางเพศ</em> ซึ่งส่งผลกระทบต่อประชากร 2 พันล้านคน</li>
+    </ul>
+
+    <h3>5.2 ชุมชนแออัดและผู้มีรายได้น้อย</h3>
+    <ul>
+      <li><strong>ความเสี่ยงในชุมชนแออัด:</strong> การปล่อยน้ำเสียที่ไม่ผ่านการบำบัดลงสู่แหล่งน้ำรับ ทำให้ดัชนีคุณภาพน้ำ (WQI) ลดลง และสร้างความเสี่ยงด้านสุขภาพโดยตรงต่อผู้อยู่อาศัย รวมถึงโรคระบบทางเดินอาหารและปัญหาระบบทางเดินหายใจ</li>
+      <li><strong>น้ำท่วมขังและสุขอนามัย:</strong> ในชุมชนแออัด น้ำเสียมัก stagnates และไหลเข้าสู่แหล่งน้ำใต้ดินและแหล่งน้ำผิวดิน สร้างความเสี่ยงต่อสุขภาพอย่างรุนแรง โดยเฉพาะในพื้นที่ที่ประสบอุทกภัยบ่อยครั้ง</li>
+    </ul>
+
+    <h3>5.3 ผลกระทบต่อคุณภาพชีวิตและศักดิ์ศรี</h3>
+    <ul>
+      <li><strong>ความเครียดและความวิตกกังวล:</strong> สุขอนามัยที่ไม่ดียังลดสวัสดิภาพของมนุษย์และการพัฒนาทางสังคมและเศรษฐกิจ เนื่องจากความวิตกกังวล ความเสี่ยงต่อการถูกทำร้ายทางเพศ และการสูญเสียโอกาสทางการศึกษาและการจ้างงาน</li>
+      <li><strong>กลิ่นเหม็นและทัศนียภาพ:</strong> น้ำเน่าเสียสร้างความเดือดร้อนรำคาญจากกลิ่นเหม็น และส่งผลต่อทัศนียภาพของแหล่งน้ำที่ใช้เป็นสถานที่พักผ่อนหย่อนใจ</li>
+    </ul>
+  </section>
+
+  <!-- ================= 6. THAILAND ================= -->
+  <section class="content" id="thailand">
+    <h2>6. สถานการณ์ในประเทศไทย: ภาพรวมและความท้าทาย</h2>
+
+    <div class="snippet">
+      ประเทศไทยเผชิญปัญหาน้ำเสียจากชุมชน อุตสาหกรรม และเกษตรกรรม
+      โดยมีน้ำเสียชุมชนเพียงประมาณ <strong>30%</strong>
+      ที่เข้าสู่ระบบบำบัดน้ำเสียได้ และปัญหาน้ำเสียยังส่งผลกระทบต่อ
+      การท่องเที่ยวและภาพลักษณ์ของประเทศอย่างชัดเจน
+    </div>
+
+    <h3>6.1 สถานการณ์คุณภาพน้ำโดยรวม</h3>
+    <ul>
+      <li><strong>คุณภาพน้ำผิวดิน:</strong> ข้อมูลปี 2567 ระบุว่าสัดส่วนแหล่งน้ำผิวดินที่อยู่ในเกณฑ์เหมาะสมกับประเภทการใช้ประโยชน์อยู่ที่ประมาณ <strong>84.36%</strong></li>
+      <li><strong>น้ำบาดาล:</strong> คุณภาพน้ำบาดาลอยู่ในเกณฑ์เหมาะสม <strong>76.10%</strong> เพิ่มขึ้นจากปีก่อนหน้า</li>
+    </ul>
+
+    <h3>6.2 ข้อจำกัดในการบำบัดน้ำเสีย</h3>
+    <ul>
+      <li><strong>น้ำเสียชุมชนเข้าสู่ระบบบำบัดเพียง 30%:</strong> ปัจจุบันมีน้ำเสียชุมชนเข้าสู่ระบบบำบัดน้ำเสียได้เพียงร้อยละ <strong>30</strong> ของปริมาณน้ำเสียทั้งหมด</li>
+      <li><strong>ข้อจำกัดด้านกฎหมายและงบประมาณ:</strong> การจัดการมลพิษจากต้นทางยังเผชิญข้อจำกัดในด้านกฎหมาย งบประมาณ และศักยภาพขององค์กรปกครองส่วนท้องถิ่น</li>
+    </ul>
+
+    <h3>6.3 ผลกระทบต่อการท่องเที่ยวและภาพลักษณ์ประเทศ</h3>
+    <ul>
+      <li><strong>น้ำเสียไหลลงทะเล:</strong> ปัญหาน้ำเสียไหลลงทะเลในพื้นที่ท่องเที่ยวสำคัญ เช่น ภูเก็ต เกาะยาวใหญ่ และเกาะพีพี ส่งผลกระทบต่อภาพลักษณ์การท่องเที่ยวโดยตรง</li>
+      <li><strong>ผลกระทบต่อระบบนิเวศทางทะเล:</strong> น้ำเสียที่ปล่อยลงทะเลโดยตรงส่งผลกระทบต่อแนวปะการังและระบบนิเวศโดยรวม รวมถึงสร้างความเสียหายต่อผู้ประกอบการท่องเที่ยวและรายได้ของประชาชนในพื้นที่</li>
+    </ul>
+
+    <div class="callout warning">
+      <strong>📌 หมายเหตุ:</strong> ตัวเลข "น้ำเสียชุมชนเข้าสู่ระบบบำบัด 30%"
+      เป็นตัวเลขที่ถูกอ้างอิงบ่อยในรายงานภาครัฐ
+      แต่ควรตรวจสอบข้อมูลล่าสุดจากกรมควบคุมมลพิษและสำนักงานสภาพัฒน์ฯ
+      ก่อนนำไปเผยแพร่บนเว็บไซต์ เนื่องจากมีการปรับปรุงตัวเลขเป็นระยะ
+    </div>
+  </section>
+
+  <!-- ================= 7. SOLUTIONS ================= -->
+  <section class="content" id="solutions">
+    <h2>7. สรุปและแนวทางลดผลกระทบ</h2>
+
+    <div class="snippet">
+      การลดผลกระทบของน้ำสกปรกต้องอาศัยการลงทุนในการบำบัดน้ำเสีย
+      การบังคับใช้กฎหมายสิ่งแวดล้อมอย่างจริงจัง และการมีส่วนร่วมของทุกภาคส่วน
+      ตั้งแต่ครัวเรือนไปจนถึงภาคอุตสาหกรรม
+    </div>
+
+    <h3>แนวทางหลักที่แหล่งอ้างอิงระดับสากลแนะนำ</h3>
+    <ol>
+      <li><strong>ลงทุนในโครงสร้างพื้นฐานบำบัดน้ำเสีย</strong> – การบำบัดน้ำเสีย 100% สามารถเพิ่มผลิตภาพแรงงานและ GDP ได้อย่างมีนัยสำคัญ</li>
+      <li><strong>บังคับใช้มาตรฐานคุณภาพน้ำอย่างเข้มงวด</strong> – ธนาคารโลกแนะนำให้ปรับปรุงนโยบายและมาตรฐานสิ่งแวดล้อม การติดตามมลพิษที่แม่นยำ และระบบการบังคับใช้ที่มีประสิทธิผล</li>
+      <li><strong>จัดการสารอาหาร (ไนโตรเจนและฟอสฟอรัส) ตั้งแต่ต้นทาง</strong> – การลดการไหลของสารอาหารสู่แหล่งน้ำช่วยป้องกันยูโทรฟิเคชันและรักษาความหลากหลายทางชีวภาพ</li>
+      <li><strong>สร้างความตระหนักและการมีส่วนร่วมของชุมชน</strong> – การให้ข้อมูลที่ถูกต้องแก่ครัวเรือนเพื่อส่งเสริมการมีส่วนร่วมของภาคประชาสังคม</li>
+      <li><strong>จัดการกับสารปนเปื้อนอุบัติใหม่</strong> – เช่น PFAS และไมโครพลาสติก จำเป็นต้องมีการติดตาม กำกับดูแล และเทคโนโลยีบำบัดที่เหมาะสม</li>
+    </ol>
+
+    <h3>บทบาทของแต่ละภาคส่วน</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>ภาคส่วน</th><th>บทบาทสำคัญ</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>ครัวเรือน</strong></td><td>ลดการทิ้งสารเคมีลงท่อระบายน้ำ ใช้ผลิตภัณฑ์ที่เป็นมิตรต่อสิ่งแวดล้อม และคัดแยกขยะ</td></tr>
+          <tr><td><strong>ภาคอุตสาหกรรม</strong></td><td>ติดตั้งระบบบำบัดน้ำเสียที่มีประสิทธิภาพ ปฏิบัติตามมาตรฐานการปล่อยน้ำทิ้ง</td></tr>
+          <tr><td><strong>ภาคเกษตร</strong></td><td>ลดการใช้ปุ๋ยไนโตรเจนเกินความจำเป็น จัดการน้ำเสียจากปศุสัตว์อย่างถูกวิธี</td></tr>
+          <tr><td><strong>ภาครัฐ</strong></td><td>ลงทุนโครงสร้างพื้นฐาน บังคับใช้กฎหมาย ติดตามคุณภาพน้ำอย่างต่อเนื่อง</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ================= 8. REFERENCES ================= -->
+  <section class="content" id="references">
+    <h2>8. แหล่งอ้างอิง</h2>
+    <p>แหล่งข้อมูลทั้งหมดที่ใช้อ้างอิงในหน้านี้มาจากองค์กรระหว่างประเทศและหน่วยงานภาครัฐที่น่าเชื่อถือ สามารถตรวจสอบได้</p>
+
+    <ol class="refs">
+      <li>WHO. (2024). <em>Sanitation Fact Sheet.</em> Geneva: World Health Organization. <a href="https://www.who.int/news-room/fact-sheets/detail/sanitation" target="_blank" rel="noopener">who.int</a></li>
+      <li>WHO. (2024). <em>Compendium of WHO and other UN guidance on health and environment – WASH.</em> Geneva: WHO. <a href="https://www.who.int/tools/compendium-on-health-and-environment" target="_blank" rel="noopener">who.int</a></li>
+      <li>WHO. (2025). <em>Burden of disease attributable to unsafe water, sanitation and hygiene.</em> Geneva: WHO.</li>
+      <li>UNEP. (2025). <em>Biodiversity conservation – Cost of inaction versus benefits of action related to wastewater.</em> Nairobi: UNEP. <a href="https://www.unep.org" target="_blank" rel="noopener">unep.org</a></li>
+      <li>World Bank. (2019). <em>Quality Unknown: The Invisible Water Crisis.</em> Washington, DC: World Bank. <a href="https://www.worldbank.org/en/topic/water/publication/quality-unknown" target="_blank" rel="noopener">worldbank.org</a></li>
+      <li>World Bank. (2019). <em>The Impact of Water Quality on GDP Growth: Evidence from Around the World.</em> Washington, DC: World Bank.</li>
+      <li>World Bank. (2019). <em>Vietnam: Toward a Safe, Clean, and Resilient Water System.</em> Washington, DC: World Bank.</li>
+      <li>UNU. (2026). <em>UN Scientists Warn That Over 60% of Developing Countries Face Overlapping Socioeconomic and Water Security Challenges.</em> United Nations University.</li>
+      <li>Springer. (n.d.). <em>Participatory DPSIR analysis of informal settlement wastewater impacts on water supply hydrological services.</em></li>
+      <li>Europe PMC. (2025). <em>Wastewater treatment plant effluents as an obstacle to the full recovery of restored river sections.</em></li>
+      <li>สำนักงานสภาพัฒนาการเศรษฐกิจและสังคมแห่งชาติ. (2567). <em>สถานการณ์คุณภาพน้ำประเทศไทย พ.ศ. 2567.</em> กรุงเทพฯ: สภาพัฒน์ฯ.</li>
+      <li>สำนักงานคณะกรรมการข้าราชการพลเรือน. (2567). <em>การจัดการมลพิษจากต้นทาง – กรมควบคุมมลพิษ.</em></li>
+      <li>กรมอนามัย กระทรวงสาธารณสุข. (2560). <em>ชวนคนไทยใส่ใจสิ่งแวดล้อม ไม่ทิ้งขยะ สิ่งปฏิกูล และสารพิษลงในแหล่งน้ำ.</em></li>
+    </ol>
+
+    <div class="callout info">
+      <strong>📚 การประเมินแหล่งอ้างอิง:</strong> แหล่งข้อมูลทั้งหมดได้รับการคัดเลือกตามหลัก
+      <strong>CRAAP Test</strong> (Currency, Relevance, Authority, Accuracy, Purpose)
+      โดยให้ความสำคัญกับหน่วยงานระหว่างประเทศ (WHO, UNEP, World Bank, UNU)
+      และหน่วยงานราชการไทยเป็นหลัก
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="site-footer">
+  <p><strong>ผลกระทบของน้ำสกปรก: วิกฤตที่มองไม่เห็น</strong></p>
+  <p>เว็บไซต์ความรู้เพื่อการศึกษา — ข้อมูลอัปเดตล่าสุด: ตุลาคม 2026</p>
+  <p>เนื้อหาอ้างอิงจาก WHO, UNEP, World Bank และหน่วยงานภาครัฐของประเทศไทย</p>
+  <p style="margin-top:16px;font-size:.82rem;opacity:.7">
+    ⚕️ ข้อมูลนี้มีวัตถุประสงค์เพื่อให้ความรู้ ไม่ใช่คำแนะนำทางการแพทย์หรือนโยบาย
+  </p>
+</footer>
+
+<a href="#" class="back-to-top" aria-label="กลับขึ้นด้านบน">↑</a>
+
+</body>
+  </html>
